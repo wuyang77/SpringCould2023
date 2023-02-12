@@ -10,7 +10,20 @@ spring:
     url: jdbc:mysql://localhost:3306/cloud2021?serverTimezone=UTC
     username: root
     password: 1234
+  zipkin:
+    base-url: http://localhost:9411
+    sleuth:
+      sampler:
+        #采样率值介于0~1之间，1表示全部采样
+        probability: 1
 
 mybatis:
   mapperLocations: classpath:/mapper/*.xml
   type-aliases-package: com.atguigu.springcloud.entities
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
